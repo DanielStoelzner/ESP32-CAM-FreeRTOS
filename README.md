@@ -17,7 +17,7 @@ WebOTA | `:8080/webota`
 
 Rename `home_wifi_multi_template.h` to `home_wifi_multi.h` and change SSID and WiFi Password contained int that file.
 
-## Compiler settings for Arduino IDE:
+## Board settings for Arduino IDE:
 
 * Board: ESP32 Dev Module
 * CPU Frequency: 240MHz
