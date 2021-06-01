@@ -67,11 +67,11 @@ void handleJPGSstream(void);
 void streamCB(void * pvParameters);
 void camCB(void* pvParameters);
 char* allocateMemory(char* aPtr, size_t aSize);
-
 void handleJPG(void);
-void status_handler();
+
+void set_handler();
+void get_handler();
 void control_handler();
-void control2_handler();
 void restart_handler();
 void activatewebota_handler();
 void handleNotFound();
@@ -305,7 +305,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#181818;color:#EFEFEF;fon
 							default:
 									return;
 							}
-							const D = `${c}/control?var=${B.id}&val=${C}`;
+							const D = `${c}/set?var=${B.id}&val=${C}`;
 							fetch(D).then(E => {
 									console.log(`request to ${D} finished, status: ${E.status}`)
 							})
@@ -332,7 +332,7 @@ body{font-family:Arial,Helvetica,sans-serif;background:#181818;color:#EFEFEF;fon
 							B.onclick = () => {
 									e(B.parentNode)
 							}
-					}), fetch(`${c}/status`).then(function (B) {
+					}), fetch(`${c}/get`).then(function (B) {
 							return B.json()
 					}).then(function (B) {
 							document.querySelectorAll('.default-action').forEach(C => {
@@ -444,9 +444,9 @@ void mjpegCB(void* pvParameters) {
 	//	Registering webserver handling routines
 	server.on("/mjpeg/1", HTTP_GET, handleJPGSstream);
 	server.on("/jpg", HTTP_GET, handleJPG);
-	server.on("/status", HTTP_GET, status_handler);
-	server.on("/control", HTTP_GET, control_handler);
-	server.on("/control2", HTTP_GET, control2_handler);
+	server.on("/get", HTTP_GET, set_handler);
+	server.on("/set", HTTP_GET, get_handler);
+	server.on("/control", HTTP_GET, );
 	server.on("/restart", HTTP_GET, restart_handler);
 	server.on("/activatewebota", HTTP_GET, activatewebota_handler);
 	server.onNotFound(handleNotFound);
@@ -811,7 +811,7 @@ void loop() {
 		vTaskDelay(1000);
 }
 
-void status_handler(){
+void set_handler(){
 	sensor_t * s = esp_camera_sensor_get();
 	StaticJsonDocument<1000> data;
 	data["framesize"] = s->status.framesize;
@@ -844,7 +844,7 @@ void status_handler(){
 	server.send(200, "application/json", response);
 }
 
-void control_handler(){
+void get_handler(){
 	String variable = server.arg("var");
 	String value = server.arg("val");
  	
@@ -884,7 +884,7 @@ void control_handler(){
 		server.send(200, "text/plain", ("OK"));
 }
 
-void control2_handler(){
+void (){
 	server.send(200, "text/html", (const char *)INDEX_HTML);
 }
 
