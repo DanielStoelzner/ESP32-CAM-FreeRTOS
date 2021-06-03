@@ -11,6 +11,7 @@ Set a variable | `/set?var=<var>&val=<val>`
 Get the status of all variables | `/get`
 Activate WebOTA | `/activatewebota` | sets a flag that changes the FreeRTOS-delay to webota.delay(...)
 Restart | `/restart`
+Reset | `/reset`
 WebOTA | `:8080/webota`
 
 ## Instructions
