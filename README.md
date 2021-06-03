@@ -16,7 +16,7 @@ WebOTA | `:8080/webota`
 
 ## Instructions
 
-Rename `home_wifi_multi_template.h` to `home_wifi_multi.h` and change SSID and WiFi Password contained int that file.
+Rename `home_wifi_multi_template.h` to `home_wifi_multi.h` and your SSID and WiFi Password.
 
 ## Board settings for Arduino IDE:
 
