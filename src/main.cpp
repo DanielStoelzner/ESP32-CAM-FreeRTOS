@@ -1,23 +1,3 @@
-/*
-	This is a simple MJPEG streaming webserver implemented for AI-Thinker ESP32-CAM
-	and ESP-EYE modules.
-	This is tested to work with VLC and Blynk video widget and can support up to 10
-	simultaneously connected streaming clients.
-	Simultaneous streaming is implemented with FreeRTOS tasks.
-	Inspired by and based on this Instructable: $9 RTSP Video Streamer Using the ESP32-CAM Board
-	(https://www.instructables.com/id/9-RTSP-Video-Streamer-Using-the-ESP32-CAM-Board/)
-	Board: AI-Thinker ESP32-CAM or ESP-EYE
-	Compile as:
-	 ESP32 Dev Module
-	 CPU Freq: 240
-	 Flash Freq: 80
-	 Flash mode: QIO
-	 Flash Size: 4Mb
-	 Patrition: Minimal SPIFFS
-	 PSRAM: Enabled
-*/
-
-// ESP32 has two cores: APPlication core and PROcess core (the one that runs ESP32 SDK stack)
 #define APP_CPU 1
 #define PRO_CPU 0
 
@@ -45,16 +25,6 @@ Preferences preferences;
 
 #include "camera_pins.h"
 
-/*
-	Next one is an include with wifi credentials.
-	This is what you need to do:
-	1. Create a file called "home_wifi_multi.h" in the same folder	 OR	 under a separate subfolder of the "libraries" folder of Arduino IDE. (You are creating a "fake" library really - I called it "MySettings").
-	2. Place the following text in the file:
-	#define SSID1 "replace with your wifi ssid"
-	#define PWD1 "replace your wifi password"
-	3. Save.
-	Should work then
-*/
 #include "home_wifi_multi.h"
 
 OV2640 cam;

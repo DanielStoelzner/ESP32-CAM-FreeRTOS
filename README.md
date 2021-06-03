@@ -1,17 +1,17 @@
 # ESP32-CAM-FreeRTOS
-A combination of the excellent ESP32 MJPEG Multiclient Streaming Server by arkhipenko ([arkhipenko/esp32-cam-mjpeg-multiclient](https://github.com/arkhipenko/esp32-cam-mjpeg-multiclient)) and the default ESP32-CAM Web Server Example sans the Face Detection and including WebOTA ([scottchiefbaker/ESP-WebOTA](https://github.com/scottchiefbaker/ESP-WebOTA))
+A combination of the excellent ESP32 MJPEG Multiclient Streaming Server by arkhipenko ([arkhipenko/esp32-cam-mjpeg-multiclient](https://github.com/arkhipenko/esp32-cam-mjpeg-multiclient)), the default ESP32-CAM Web Server Example sans the Face Detection, and including WebOTA ([scottchiefbaker/ESP-WebOTA](https://github.com/scottchiefbaker/ESP-WebOTA)). Settings are stored in NVS via the Preferences library.
 
 ## Handlers
 
 Handler | URL | NOte
 ------------ | ------------- | -------------
 Stream | `/mjpeg/1`
-Still | `/jpg`
+Capture | `/jpg`
 Set a variable | `/set?var=<var>&val=<val>`
-Get the status of all variables | `/get`
+Get the values of all variables | `/get`
 Activate WebOTA | `/activatewebota` | sets a flag that changes the FreeRTOS-delay to webota.delay(...)
 Restart | `/restart`
-Reset | `/reset`
+Fatory defaults | `/reset`
 WebOTA | `:8080/webota`
 
 ## Instructions
