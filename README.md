@@ -11,12 +11,12 @@ Set a variable | `/set?var=<var>&val=<val>`
 Get the values of all variables | `/get`
 Activate WebOTA | `/activatewebota` | sets a flag that changes the FreeRTOS-delay to webota.delay(...)
 Restart | `/restart`
-Fatory defaults | `/reset`
+Factory defaults | `/reset`
 WebOTA | `:8080/webota`
 
 ## Instructions
 
-Rename `home_wifi_multi_template.h` to `home_wifi_multi.h` and your SSID and WiFi Password.
+Rename `home_wifi_multi_template.h` to `home_wifi_multi.h` and add your SSID and WiFi Password.
 
 ## Board settings for Arduino IDE:
 
