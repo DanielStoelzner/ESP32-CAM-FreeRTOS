@@ -7,6 +7,7 @@ Handler | URL | NOte
 ------------ | ------------- | -------------
 Stream | `/mjpeg/1`
 Capture | `/jpg`
+UI for settings | `/control`
 Set a variable | `/set?var=<var>&val=<val>`
 Get the values of all variables | `/get`
 Activate WebOTA | `/activatewebota` | sets a flag that changes the FreeRTOS-delay to webota.delay(...)
